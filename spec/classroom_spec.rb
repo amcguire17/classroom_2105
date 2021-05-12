@@ -69,4 +69,27 @@ describe Classroom do
       expect(classroom.over_capacity?).to eq true
     end
   end
+
+  # Iteration 4
+
+  context 'Remove from Classroom' do
+    it 'remove student from full classroom' do
+      classroom = Classroom.new('History', 4)
+      classroom.add_student('Mike')
+      classroom.add_student('Megan')
+      classroom.add_student('Bob')
+      classroom.add_student('James')
+      classroom.add_student('Cat')
+      classroom.add_student('Alice')
+
+      classroom.kick_out
+
+      expect(classroom.over_capacity?).to eq true
+
+      classroom.kick_out
+
+      expect(classroom.over_capacity?).to eq false
+      expect(classroom.students).to eq(['Bob', 'James', 'Cat', 'Alice'])
+    end
+  end
 end
