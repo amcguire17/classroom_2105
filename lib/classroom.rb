@@ -13,9 +13,11 @@ class Classroom
 
   def yell_at_students
     students_yelled_at = []
+
     students.each do |name|
       students_yelled_at << name.upcase
     end
+    
     students_yelled_at
   end
 
